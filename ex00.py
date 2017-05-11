@@ -1,0 +1,1 @@
+"""Introductory instruction to open terminal, create directory"""
