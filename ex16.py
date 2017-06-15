@@ -30,7 +30,7 @@ target.close()
 print ("And then we open it again to be able to read it.")
 target = open(filename, 'r')
 
-print ("And here are the contents of the file: ", target.read)
+print ("And here are the contents of the file: ", "\n" + target.read())
 
 print ("And then we close it one more time.")
 target.close()
