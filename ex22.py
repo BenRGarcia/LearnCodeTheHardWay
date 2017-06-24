@@ -37,17 +37,16 @@ using the argv s'more, adding a formatting twist with the >
 # ex15.py introduced:
 using open(), .read, .close
 # ex16.py introduced:
-
+open(<filename>, 'w'), .truncate(), .write()
 # ex17.py introduced:
-
+library/module os.path and exists, copy contents of one file to another
 # ex18.py introduced:
-
+defining functions with arguments, calling print statements
 # ex19.py introduced:
-
+multiple ways of passing arguments to functions
 # ex20.py introduced:
-
+.readline, .seek(#), incrementing with +=
 # ex21.py introduced:
-
-
-
+defining functions that perform basic mathematical operations, nesting functions
+within functions
 """
