@@ -16,13 +16,13 @@ The Truth Tables Answer Key:
 |   False and True       = False |
 |   False and False      = False |
 ----------------------------------
-|'NOT OR':	                 |
+|'NOT OR':                       |
 |   not(True or False)   = False |
 |   not(True or True)    = False |
 |   not(False or True)   = False |
 |   not(False or False)  = True  |
 ----------------------------------
-|'NOT AND':	                 |
+|'NOT AND':                      |
 |   not(True and False)  = True  |
 |   not(True and True)   = False |
 |   not(False and True)  = True  |
