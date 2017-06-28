@@ -50,7 +50,7 @@ question_bank = [ # Tuple list of all logic arguments and their True/False resul
 ]
 
 
-question_count = 2 # int(input("How many questions would you like in this quiz? (Max 26)\n\t\t>"))
+question_count = 5 # int(input("How many questions would you like in this quiz? (Max 26)\n\t\t>"))
 random_numbers = sample(range(27),question_count) # Use to randomize quiz questions
 correct_answers = 0    # Use to increment correct answers
 incorrect_answers = 0  # Use to increment incorrect answers
@@ -61,7 +61,7 @@ while question_count > 0:
     """A function that asks random questions from the question bank"""
     question = question_bank[random_numbers.pop(0)]
     print ("\n\n__________________________________________________________")
-    print ("%r) Does the following expression result in True or False?\n\t" % number, question[0])
+    print ("\n%r) Does the following expression result in True or False?\n\t" % number, question[0])
     answer = input(">>>")
     number += 1
     if answer == question[1]:
