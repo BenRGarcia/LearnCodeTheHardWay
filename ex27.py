@@ -1,18 +1,26 @@
 """
-Zed says I should memorize these by writing out index cards.
-Why not create a program that does the same thing?
+Zed says I should memorize these logic arguments by writing out index cards.
+Fair enough, but why not create a program that does the same thing?
 FYI, Run this script with: $ python3 ex27.py ex27_answerkey.txt
 """
 from random import sample
-#from sys import argv
-#script, input_file = argv
+from sys import argv
+script, input_file = argv
 
-question_count = int(input("How many questions would you like in this quiz? "))
-random_numbers = sample(range(27),question_count)
+print ("""
+===================================
+Welcome to the Logic Argument Quiz!
+===================================\n\n
+Your job is to determine whether the logic
+argument will return 'True' or 'False'.\n\n
+Beware!
+Your inputs are case sensitive...
+Remember to capitalize 'T'rue and 'F'alse!!!\n
+""")
 
-print (random_numbers)
+ready = input("Are you ready? Press any key to begin.\n>>>")
 
-question_bank = [
+question_bank = [ # Tuple list of all logic arguments and their True/False result
 ("not False", "True"),
 ("not True", "False"),
 ("True or False", "True"),
@@ -41,102 +49,47 @@ question_bank = [
 ("0 == 0", "True")
 ]
 
-#res_list = [x[0] for x in question_bank]
-#print (res_list[-1])
+
+question_count = 2 # int(input("How many questions would you like in this quiz? (Max 26)\n\t\t>"))
+random_numbers = sample(range(27),question_count) # Use to randomize quiz questions
+correct_answers = 0    # Use to increment correct answers
+incorrect_answers = 0  # Use to increment incorrect answers
+number = 1             # Use to incrememt question numbers
+
 
 while question_count > 0:
+    """A function that asks random questions from the question bank"""
     question = question_bank[random_numbers.pop(0)]
-    print ("Does the following expression result in True or False?\n", question[0])
-    #print ("Does the following expression result in True or False? %s" % question)
-    answer = input("\t>")
+    print ("\n\n__________________________________________________________")
+    print ("%r) Does the following expression result in True or False?\n\t" % number, question[0])
+    answer = input(">>>")
+    number += 1
+    if answer == question[1]:
+        correct_answers += 1
+        print ("\nCorrect!")
+    else:
+        incorrect_answers += 1
+        print ("\nSorry, that's incorrect.")
+    print ("\nSo far, you have answered %d correct, and %d wrong." % (correct_answers, incorrect_answers))
+    next_question = input("\nPress any key to continue.\n>>>")
     question_count -= 1
 
-#-------------------------------------------------
-"""
-def logic_quiz():
-    for q in question_bank:
-        print (q[0])
 
-logic_quiz()
-"""
-#for logical_expression, true_or_false in logic_quiz_question_bank:
+def final_score():
+    """A function that prints the final score"""
+    score = (correct_answers / (correct_answers + incorrect_answers)) * 100
+    print ("\nYour final score is: %d" % score)
 
-# Add "Beware your inputs are case sensitive (Capitalize 'T'rue and 'F'alse)"
-# Add "while question_count > 1"???
-#-------------------------------------------------------------------------------
-"""
-import ex27_question_bank # This line works now--don't break it
+final_score()
 
-def logic_quiz():
-    question_list = [
-    ex27_question_bank.question_1(),
-    ex27_question_bank.question_2(),
-    ex27_question_bank.question_3(),
-    ex27_question_bank.question_4(),
-    ex27_question_bank.question_5(),
-    ex27_question_bank.question_6(),
-    ex27_question_bank.question_7(),
-    ex27_question_bank.question_8(),
-    ex27_question_bank.question_9(),
-    ex27_question_bank.question_10(),
-    ex27_question_bank.question_11(),
-    ex27_question_bank.question_12(),
-    ex27_question_bank.question_13(),
-    ex27_question_bank.question_14(),
-    ex27_question_bank.question_15(),
-    ex27_question_bank.question_16(),
-    ex27_question_bank.question_17(),
-    ex27_question_bank.question_18(),
-    ex27_question_bank.question_20(),
-    ex27_question_bank.question_21(),
-    ex27_question_bank.question_22(),
-    ex27_question_bank.question_23(),
-    ex27_question_bank.question_24(),
-    ex27_question_bank.question_25(),
-    ex27_question_bank.question_26(),
-    ]
-    quiz_list = question_list[random_number_list]
-    """
-#-------------------------------------------------------------------------------
-"""
+
+print ("\nThanks for taking the quiz! Press any key to see the answer key.")
+next_question = input(">>>")
+
 def print_answer_sheet(f):
-    #A function that prints out the answer sheet
-    print ("Here is the answer sheet:\n\n", f.read())
+    """A function that prints out the answer key"""
+    print ("\n\nHere is the answer key:\n\n", f.read())
 
 open_input_file = open(input_file)  # Open the input_file (ex27_answerkey.txt)
 print_answer_sheet(open_input_file) # Call function that prints the answer sheet
 open_input_file.close()             # Close the input_file
-"""
-
-"""
-def logic_quiz():
-    question_list = [
-    ex27_question_bank.question_1(),
-    ex27_question_bank.question_2(),
-    ex27_question_bank.question_3(),
-    ex27_question_bank.question_4(),
-    ex27_question_bank.question_5(),
-    ex27_question_bank.question_6(),
-    ex27_question_bank.question_7(),
-    ex27_question_bank.question_8(),
-    ex27_question_bank.question_9(),
-    ex27_question_bank.question_10(),
-    ex27_question_bank.question_11(),
-    ex27_question_bank.question_12(),
-    ex27_question_bank.question_13(),
-    ex27_question_bank.question_14(),
-    ex27_question_bank.question_15(),
-    ex27_question_bank.question_16(),
-    ex27_question_bank.question_17(),
-    ex27_question_bank.question_18(),
-    ex27_question_bank.question_20(),
-    ex27_question_bank.question_21(),
-    ex27_question_bank.question_22(),
-    ex27_question_bank.question_23(),
-    ex27_question_bank.question_24(),
-    ex27_question_bank.question_25(),
-    ex27_question_bank.question_26(),
-    ]
-
-#question_list[0]
-"""
