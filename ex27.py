@@ -3,19 +3,22 @@ Zed says I should memorize these logic arguments by writing out index cards.
 Fair enough, but why not create a program that does the same thing?
 FYI, Run this script with: $ python3 ex27.py ex27_answerkey.txt
 """
+
 from random import sample
 from sys import argv
 script, input_file = argv
 
+print("\033c") # Clears the terminal screen for the user
+
 print ("""
-===================================
-Welcome to the Logic Argument Quiz!
-===================================\n\n
+==========================================
+    Welcome to the Boolean Logic Quiz!
+==========================================  \n\n
 Your job is to determine whether the logic
 argument will return 'True' or 'False'.\n\n
 Beware!
 Your inputs are case sensitive...
-Remember to capitalize 'T'rue and 'F'alse!!!\n
+Remember to capitalize 'T'rue and 'F'alse!\n
 """)
 
 ready = input("Are you ready? Press any key to begin.\n>>>")
@@ -50,8 +53,8 @@ question_bank = [ # Tuple list of all logic arguments and their True/False resul
 ]
 
 
-question_count = 5 # int(input("How many questions would you like in this quiz? (Max 26)\n\t\t>"))
-random_numbers = sample(range(27),question_count) # Use to randomize quiz questions
+question_count = 8 # int(input("How many questions would you like in this quiz? (Max 26)\n\t\t>"))
+random_numbers = sample(range(26),question_count) # Use to randomize quiz questions
 correct_answers = 0    # Use to increment correct answers
 incorrect_answers = 0  # Use to increment incorrect answers
 number = 1             # Use to incrememt question numbers
@@ -59,21 +62,22 @@ number = 1             # Use to incrememt question numbers
 
 while question_count > 0:
     """A function that asks random questions from the question bank"""
+    print("\033c") # Clears the terminal screen for the user
     question = question_bank[random_numbers.pop(0)]
-    print ("\n\n__________________________________________________________")
     print ("\n%r) Does the following expression result in True or False?\n\t" % number, question[0])
     answer = input(">>>")
-    number += 1
+    number += 1 # increment question number
     if answer == question[1]:
-        correct_answers += 1
+        correct_answers += 1 # increment a correct answer from user
         print ("\nCorrect!")
     else:
-        incorrect_answers += 1
+        incorrect_answers += 1 # increment an incorrect answer from user
         print ("\nSorry, that's incorrect.")
     print ("\nSo far, you have answered %d correct, and %d wrong." % (correct_answers, incorrect_answers))
     next_question = input("\nPress any key to continue.\n>>>")
     question_count -= 1
 
+print("\033c") # Clears the terminal screen for the user
 
 def final_score():
     """A function that prints the final score"""
@@ -88,7 +92,10 @@ next_question = input(">>>")
 
 def print_answer_sheet(f):
     """A function that prints out the answer key"""
+    print("\033c") # Clears the terminal screen for the user
     print ("\n\nHere is the answer key:\n\n", f.read())
+
+
 
 open_input_file = open(input_file)  # Open the input_file (ex27_answerkey.txt)
 print_answer_sheet(open_input_file) # Call function that prints the answer sheet
